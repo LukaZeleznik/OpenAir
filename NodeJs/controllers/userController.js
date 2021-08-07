@@ -89,7 +89,7 @@ exports.update = function (req, res) {
 };
 
 exports.delete = function (req, res) {
-    userModel.findById(req.params.id, function (err, user) {
+    userModel.deleteOne({_id: req.params.uid}, function (err, user) {
         if (err){
             res.status(500).json(err);
             console.log(err);
